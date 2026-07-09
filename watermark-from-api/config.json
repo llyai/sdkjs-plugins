@@ -1,0 +1,21 @@
+{
+  "name": "Watermark (image API)",
+  "guid": "asc.{A1B2C3D4-E5F6-4A7B-8C9D-0E1F2A3B4C5D}",
+  "version": "1.0.0",
+  "variations": [
+    {
+      "description": "Fetch watermark image from imageProxyUrl (WOPI/proxy), then tile or center like params plugin.",
+      "url": "index.html",
+      "icons": [],
+      "isViewer": false,
+      "EditorsSupport": ["word", "cell", "slide", "pdf"],
+      "isVisual": false,
+      "isModal": false,
+      "isInsideMode": false,
+      "initDataType": "none",
+      "initData": "",
+      "buttons": [],
+      "type": "background"
+    }
+  ]
+}

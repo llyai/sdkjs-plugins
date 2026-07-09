@@ -1,0 +1,21 @@
+{
+  "name": "Watermark (params)",
+  "guid": "asc.{7E4A9C2B-8D1F-4E50-A3C6-9B5E2F1D0A8B}",
+  "version": "1.0.0",
+  "variations": [
+    {
+      "description": "Overlay watermark from editorConfig.customization.watermark (params / items).",
+      "url": "index.html",
+      "icons": [],
+      "isViewer": false,
+      "EditorsSupport": ["word", "cell", "slide", "pdf"],
+      "isVisual": false,
+      "isModal": false,
+      "isInsideMode": false,
+      "initDataType": "none",
+      "initData": "",
+      "buttons": [],
+      "type": "background"
+    }
+  ]
+}
