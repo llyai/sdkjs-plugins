@@ -479,10 +479,27 @@
     return isViewMode() || docReady;
   }
 
+  function isCenterLayout(wm) {
+    return String((wm && wm.layout) || '').toLowerCase() === 'center';
+  }
+
+  /**
+   * Excel tiles watermark_on_draw bitmaps across the sheet (DrawingArea loop).
+   * A center-layout page PNG therefore appears as multiple off-center copies.
+   * Use DOM overlay for Excel + center only (Word/PPT/PDF still use engine).
+   */
+  function needsDomCenter(wm) {
+    return editorType() === 'cell' && isCenterLayout(wm);
+  }
+
   function applyWatermark(wm) {
-    if (wm.useDomOverlay === true) {
-      bootstrapDomOverlay();
-      applied = true;
+    if (wm.useDomOverlay === true || needsDomCenter(wm)) {
+      // Clear any engine watermark first so tiled PNG does not remain under DOM.
+      stopDomOverlay();
+      clearEngineWatermark(function () {
+        bootstrapDomOverlay();
+        applied = true;
+      });
       return;
     }
     stopDomOverlay();
@@ -497,12 +514,6 @@
   }
 
   function removeWatermark() {
-    var wm = getCfg();
-    if (wm && wm.useDomOverlay === true) {
-      stopDomOverlay();
-      closePlugin();
-      return;
-    }
     stopDomOverlay();
     clearEngineWatermark(closePlugin);
   }
