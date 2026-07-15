@@ -6,7 +6,6 @@
     {
       "description": "Fetch watermark image from imageProxyUrl (WOPI/proxy), then tile or center like params plugin.",
       "url": "index.html",
-      "icons": [],
       "isViewer": false,
       "EditorsSupport": ["word", "cell", "slide", "pdf"],
       "isVisual": false,
